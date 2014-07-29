@@ -25,7 +25,6 @@ public class Rndgraph {
 			}
 		}
 		
-		// ファイル出力
 		
 		File file = new File(fileAddress);
 

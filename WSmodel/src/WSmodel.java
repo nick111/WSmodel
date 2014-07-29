@@ -13,33 +13,33 @@ public class WSmodel {
 		int k = Integer.parseInt(args[1]);
 		int n = Integer.parseInt(args[2]);
 		double p = Double.parseDouble(args[3]);
-		
+
 		String fileAddress = "wsout_" + k + "_" + n + "_" + p + ".csv"; 
-		
+
 		ConcurrentHashMap<Integer, String> map = new ConcurrentHashMap<Integer, String>();
 
-		// Å‰‚ÌƒOƒ‰ƒtì¬
+		// æœ€åˆã®ã‚°ãƒ©ãƒ•ä½œæˆ
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < k * 0.5; j++) {
-				// –³ŒüƒOƒ‰ƒt‚¾‚ªAŠÈ’P‚Ì‚½‚ß‚Én“_(s)‚ÆI“_(t)‚ğİ‚¯‚éB
-				// n“_‚Íí‚ÉI“_‚æ‚è‚à¬‚³‚­‚È‚é‚æ‚¤‚ÉˆÓ¯‚·‚éiƒ_ƒuƒŠ‚ğ–h‚®‚½‚ßjB
+				// ç„¡å‘ã‚°ãƒ©ãƒ•ã ãŒã€ç°¡å˜ã®ãŸã‚ã«å§‹ç‚¹(s)ã¨çµ‚ç‚¹(t)ã‚’è¨­ã‘ã‚‹ã€‚
+				// å§‹ç‚¹ã¯å¸¸ã«çµ‚ç‚¹ã‚ˆã‚Šã‚‚å°ã•ããªã‚‹ã‚ˆã†ã«æ„è­˜ã™ã‚‹ï¼ˆãƒ€ãƒ–ãƒªã‚’é˜²ããŸã‚ï¼‰ã€‚
 				int s = i;
 				int t = i + j;
 				if (t >= n) {
 					s = t - n;
 					t = i;
 				}
-				// n“_‚Én‚ğ‚©‚¯‚ÄI“_‚ğ‘«‚·‚±‚Æ‚ÅAˆê‚Â‚Ì”‚Å“ñŸŒ³‚Ì”‚ğ•\Œ»‚µAƒnƒbƒVƒ…‚·‚é
+				// å§‹ç‚¹ã«nã‚’ã‹ã‘ã¦çµ‚ç‚¹ã‚’è¶³ã™ã“ã¨ã§ã€ä¸€ã¤ã®æ•°ã§äºŒæ¬¡å…ƒã®æ•°ã‚’è¡¨ç¾ã—ã€ãƒãƒƒã‚·ãƒ¥ã™ã‚‹
 				map.put(s * n + t, "");
 			}
 		}
 
-		// ƒŠƒ“ƒN‚Ì‚Â‚È‚¬‚©‚¦
+		// ãƒªãƒ³ã‚¯ã®ã¤ãªãã‹ãˆ
 		Iterator<Map.Entry<Integer, String>> it = map.entrySet().iterator();
 		while(it.hasNext()){
-			
+
 			Map.Entry<Integer, String> e = it.next();
-			
+
 			if (Math.random() < p) {
 
 				int s1 = e.getKey() / n;
@@ -77,8 +77,8 @@ public class WSmodel {
 			}
 		}
 
-		// ƒtƒ@ƒCƒ‹o—Í
-		
+		// ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›
+
 		File file = new File(fileAddress);
 
 		try {
@@ -91,7 +91,7 @@ public class WSmodel {
 				bw.write(str);
 				bw.newLine();	
 			}
-			
+
 			bw.close();
 
 		} catch (IOException e) {

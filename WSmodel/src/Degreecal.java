@@ -24,6 +24,10 @@ public class Degreecal {
 			inFileAddress = "rndout_" + "_" + args[1] + "_" + args[2] + ".csv";
 			n = Integer.parseInt(args[1]);
 			outFileAddress = "rnd_deg_" + args[1] + "_" + args[2] + ".csv";
+		} else if (args[0].equals("BA")) {
+			inFileAddress = "baout_" + args[1] + ".csv";
+			n = Integer.parseInt(args[1]);
+			outFileAddress = "ba_deg_" + args[1] + ".csv";
 		}
 		
 		int[] degree = new int[n];
@@ -45,7 +49,7 @@ public class Degreecal {
 			e.printStackTrace();
 		}
 
-		// Ÿ”‚²‚Æ‚Ì”ŒvZ
+		// æ¬¡æ•°ã”ã¨ã®æ•°è¨ˆç®—
 		TreeMap<Integer,Integer> map = new TreeMap<Integer,Integer>();
 		for(int i = 0; i < n; i++){
 			if(map.get(degree[i])==null){
@@ -57,7 +61,7 @@ public class Degreecal {
 		
 		
 		
-		// ƒtƒ@ƒCƒ‹o—Í
+		// ãƒ•ã‚¡ã‚¤ãƒ«å‡ºåŠ›
 		
 		File outFile = new File(outFileAddress);
 		int t = 0;
@@ -88,7 +92,7 @@ public class Degreecal {
 		
 		}
 
-		// Å‘åŸ”
+		// æœ€å¤§æ¬¡æ•°
 		int maxdeg = t - 1;
 		int avdeg = sum / n; 
 		if (args[0].equals("WS")) {

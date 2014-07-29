@@ -8,12 +8,15 @@ do
     java WSmodel ${line}
   elif [ "${type}" = "RND" ]; then
     java Rndgraph ${line}
+  elif [ "${type}" = "BA" ]; then
+    java BAModel ${line}
   fi
 done
 
 cat ${filename} | while read line
 do
   java Degreecal ${line} >> results.csv
+  java Triangle ${line} >> triangle.csv
 done
 
 
